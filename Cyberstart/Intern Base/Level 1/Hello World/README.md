@@ -1,6 +1,8 @@
-```We've found a profile page of a known hacker that we need to get in contact with but most of the information visible on the page is useless to us. However, there is one secret way to contact him - he's managed to inject on the page a hidden email address. Intern, we need you to find his email address!```
+```
+We've found a profile page of a known hacker that we need to get in contact with but most of the information visible on the page is useless to us. However, there is one secret way to contact him - he's managed to inject on the page a hidden email address. Intern, we need you to find his email address!
 
-```Tip: The email address is the flag.```
+Tip: The email address is the flag.
+```
 
 Note: My challenge is slightly bugged, so yours may look different
 
