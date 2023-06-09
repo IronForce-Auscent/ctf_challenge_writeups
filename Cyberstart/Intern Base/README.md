@@ -4,6 +4,6 @@ Welcome to Intern Base: Level 1! I hope that you will enjoy your journey learnin
 
  Table of Contents:<br>
     - [Hello World](/Cyberstart/Intern%20Base/Level%201/Hello%20World/)<br>
-    - [Mixed Up Messages](./Level%201/Mixed%20Up%20Messages.md)<br>
-    - [Social Engineering](./Level%201/Social%20Engineering.md)<br>
-    - [Lazy-Locked Login](./Level%201/Lazy-Locked%20Login.md)
+    - [Mixed Up Messages](/Cyberstart/Intern%20Base/Level%201/Mixed%20Up%20Messages/)<br>
+    - [Social Engineering](/Cyberstart/Intern%20Base/Level%201/Social%20Engineering/)<br>
+    - [Lazy-Locked Login](/Cyberstart/Intern%20Base/Level%201/Lazy-Locked%20Login/)
