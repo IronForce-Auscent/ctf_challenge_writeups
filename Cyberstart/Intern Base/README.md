@@ -3,7 +3,7 @@
 Welcome to Intern Base: Level 1! I hope that you will enjoy your journey learning about cybersecurity and hacking, just like I did when I went through these challenges
 
  Table of Contents:<br>
-    - [Hello World](./Level%201/Hello%20World.md)<br>
+    - [Hello World](Cyberstart\Intern%20Base\Leve%201\Hello%20World)<br>
     - [Mixed Up Messages](./Level%201/Mixed%20Up%20Messages.md)<br>
     - [Social Engineering](./Level%201/Social%20Engineering.md)<br>
     - [Lazy-Locked Login](./Level%201/Lazy-Locked%20Login.md)
