@@ -1,0 +1,39 @@
+Secure the Network
+20
+You are a cybersecurity expert working for a large corporation. Your company’s network has been under attack by hackers and it’s your job to secure it.
+
+The network is represented as a graph with N nodes (numbered from 1 to N) and M edges. Each edge represents a connection between two nodes. The hackers have managed to compromise some of the nodes and are using them to launch attacks on the rest of the network.
+
+Your task is to identify the compromised nodes and disconnect them from the rest of the network by removing their edges. However, you must do this in such a way that the remaining network remains connected (i.e., there is still a path between any two non-compromised nodes).
+
+Write a Python program that takes as input the number of nodes N, the number of edges M, a list of M edges, and a list of compromised nodes. Your program should output the minimum number of edges that must be removed to secure the network.
+
+Input:
+
+The first line contains two integers N and M, representing the number of nodes and edges in the network. The next M lines each contain two integers u and v, representing an edge between nodes u and v. The next line contains an integer K, representing the number of compromised nodes. The last line contains K integers representing the compromised nodes.
+
+Output:
+
+A single integer representing the minimum number of edges that must be removed to secure the network. Constraints:
+
+1 ≤ N ≤ 10^5
+1 ≤ M ≤ 10^6
+1 ≤ u, v ≤ N
+1 ≤ K ≤ N-1
+Example:
+
+Input:
+
+6 7 (Number of nodes and number of edges)
+1 2
+1 3
+2 3
+2 4
+3 5
+4 5
+5 6
+2   (Number of corrupted nodes)
+2 4 (Corrupted nodes)
+Output: 4  (Number of nodes to remove)
+
+In this example, nodes 2 and 4 are compromised. To secure the network, we can remove edges (1, 2), (2, 3), (2, 4), and (4, 5). This disconnects the compromised nodes from the rest of the network while keeping the remaining network connected

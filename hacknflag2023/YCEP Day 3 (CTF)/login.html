@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    
+    h1 {
+      margin-top: 50px;
+    }
+    
+    input[type="password"] {
+      padding: 10px;
+      font-size: 16px;
+    }
+    
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Login Page</h1>
+  
+  <form id="loginForm">
+    <input type="password" id="passwordInput" placeholder="Enter password" />
+    <br /><br />
+    <button type="submit">Log In</button>
+  </form>
+  
+  <p id="message" style="display: none;"></p>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      var password = document.getElementById("passwordInput").value;
+      
+      if (password === "inspectme") {
+        document.getElementById("message").textContent = "Login successful! Flag: HNF23{n0tice_m3}";
+      } else {
+        document.getElementById("message").textContent = "Incorrect password. Please try again.";
+      }
+      
+      document.getElementById("message").style.display = "block";
+    });
+  </script>
+</body>
+</html>
