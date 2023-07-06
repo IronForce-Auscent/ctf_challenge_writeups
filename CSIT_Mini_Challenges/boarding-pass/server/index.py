@@ -27,9 +27,21 @@ def get_flights():
     else:
         pass
     flights, ticket_prices = mongodb.query_flights(departure_date, return_date, destination), {}
+    flight_data = {
+        "origin": ""
+    }
     res = []
     for flight in flights:
         res.append(flight)
+    res = {
+        "City": destination,
+        "Departure Date": departure_date,
+        "Departure Airline": 0,
+        "Departure Price": 0,
+        "Return Date": return_date,
+        "Return Airline": 0,
+        "Return Price": 0
+    }
     return json.loads(json_util.dumps(res))
     
 
