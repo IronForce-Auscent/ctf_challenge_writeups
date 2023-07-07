@@ -27,10 +27,10 @@ def get_flights():
     else:
         pass
     flights, ticket_prices = mongodb.query_flights(departure_date, return_date, destination), {}
-    res = []
     for flight in flights:
-        res.append(flight)
-    res = {
+        if flight["srccity"] != destination:
+            
+    recommended_flights = {
         "City": destination,
         "Departure Date": departure_date,
         "Departure Airline": 0,
@@ -64,14 +64,14 @@ def get_hotels():
         else:
             hotel_prices[hotel["hotelName"]] += hotel["price"]
     cheapest_hotel = min(hotel_prices, key=hotel_prices.get)
-    res = {
+    recommended_hotels = {
         "City": destination,
         "Check In Date": check_in_date,
         "Check Out Date": check_out_date,
         "Hotel": cheapest_hotel,
         "Price": hotel_prices[cheapest_hotel]
     }
-    return res, 200
+    return recommended_hotels, 200
 
 
 @app.route('/')
