@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
-from . import get_database
-from .get_database import validate_date_format
+from server import get_database
+from server.get_database import validate_date_format
 from bson import json_util
 import json
 import datetime
@@ -26,10 +26,29 @@ def get_flights():
         return res, 400
     else:
         pass
-    flights, ticket_prices = mongodb.query_flights(departure_date, return_date, destination), {}
+    flights, flight_data = mongodb.query_flights(departure_date, return_date, destination), {}
+    flight_data_sample_format = {
+        "src_country_1": {
+            "departure": ["ObjectID1", "ObjectID2", "ObjectID3", "ObjectID4", "..."],
+            "return": ["ObjectID1", "ObjectID2", "ObjectID3", "ObjectID4", "..."]
+        },
+        "src_country_2": {
+            "departure": ["ObjectID1", "ObjectID2", "ObjectID3", "ObjectID4", "..."],
+            "return": ["ObjectID1", "ObjectID2", "ObjectID3", "ObjectID4", "..."]
+        },
+        "src_country_3": {
+            "departure": ["ObjectID1", "ObjectID2", "ObjectID3", "ObjectID4", "..."],
+            "return": ["ObjectID1", "ObjectID2", "ObjectID3", "ObjectID4", "..."]
+        } # and so on...
+    }
     for flight in flights:
         if flight["srccity"] != destination:
-            
+            if flight["srccity"] in flight_data.keys():
+                flight_data[flight["srccity"]]["departure"].append(flight["_id"])
+                print(flight["_id"])
+            else:
+                flight_data[flight["srccity"]]["departure"] = [flight["_id"]]
+        pass
     recommended_flights = {
         "City": destination,
         "Departure Date": departure_date,
@@ -39,7 +58,7 @@ def get_flights():
         "Return Airline": 0,
         "Return Price": 0
     }
-    return json.loads(json_util.dumps(res))
+    return json.loads(json_util.dumps(recommended_flights))
     
 
 @app.route('/hotel')
