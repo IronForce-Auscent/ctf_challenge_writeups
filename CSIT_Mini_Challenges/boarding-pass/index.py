@@ -41,14 +41,26 @@ def get_flights():
             "return": ["ObjectID1", "ObjectID2", "ObjectID3", "ObjectID4", "..."]
         } # and so on...
     }
-    for flight in flights:
-        if flight["srccity"] != destination:
+    sorted_flights = sorted(flights, key=lambda flight: flight['price'])
+    for flight in sorted_flights:
+        if flight["srccity"] in flight_data.keys() or flight["destcity"] in flight_data.keys():
             if flight["srccity"] in flight_data.keys():
                 flight_data[flight["srccity"]]["departure"].append(flight["_id"])
-                print(flight["_id"])
+            elif flight["destcity"] in flight_data.keys():
+                flight_data[flight["destcity"]]["return"].append(flight["_id"])
             else:
-                flight_data[flight["srccity"]]["departure"] = [flight["_id"]]
-        pass
+                pass
+        else:
+            if flight["srccity"] not in flight_data.keys():
+                flight_data[flight["srccity"]] = {
+                    "departure": [],
+                    "return": []
+                }
+            elif flight["destciity"] not in flight_data.keys():
+                pass
+            else:
+                pass
+
     recommended_flights = {
         "City": destination,
         "Departure Date": departure_date,
